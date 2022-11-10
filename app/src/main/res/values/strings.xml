@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Feature</string>
+    <string name="notification_message">running_void....</string>
+</resources>
