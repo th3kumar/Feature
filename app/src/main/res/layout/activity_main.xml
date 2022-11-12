@@ -208,13 +208,22 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
         android:layout_margin="24dp"
-        android:layout_marginStart="24dp"
         android:src="@drawable/ic_icon"
         android:visibility="invisible"
-        android:layout_gravity="bottom|right|end"
+        app:layout_anchorGravity="bottom|right|end"
         app:layout_constraintBottom_toBottomOf="@+id/gridLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/gridLayout" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_marginBottom="@dimen/_30sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/gridLayout"
+        app:layout_constraintEnd_toStartOf="@+id/fab"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

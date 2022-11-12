@@ -69,8 +69,6 @@ class PlayerService : Service() {
         Log.d("MAIN", "loading $soundFile")
         exoPlayer.setMediaSource(mediaSource)
         exoPlayer.prepare()
-        exoPlayer.play()
-        //exoPlayer.playWhenReady = exoPlayer.playWhenReady
         // loop indefinitely
         exoPlayer.repeatMode = Player.REPEAT_MODE_ALL
 
@@ -96,9 +94,9 @@ class PlayerService : Service() {
         // move to the foreground if we are playing sound
         if (isPlaying()) {
             val notificationIntent = Intent(this, MainActivity::class.java)
-            val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,0 )
+            val pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,PendingIntent.FLAG_IMMUTABLE )
 
-            val notification = NotificationCompat.Builder(this, "snoozz")
+            val notification = NotificationCompat.Builder(this, "feature")
                 .setContentTitle(getText(R.string.app_name))
                 .setContentText(getText(R.string.notification_message))
                 .setSmallIcon(R.drawable.ic_volume)

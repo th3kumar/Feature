@@ -47,48 +47,54 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+
         createNotificationChannel()
 
-        val play_rain: Button = findViewById(R.id.play_rain)
-        val rain_volume: SeekBar = findViewById(R.id.rain_volume)
+        next_btn.setOnClickListener{
+            val intent = Intent(this,SecondActivity::class.java)
+            startActivity(intent)
+
+        }
+
+//        val play_rain: Button = findViewById(R.id.play_rain)
+//        val rain_volume: SeekBar = findViewById(R.id.rain_volume)
         play_rain.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.RAIN)
             toggleProgressBar(rain_volume)
         }
-        val play_storm: Button = findViewById(R.id.play_storm)
-        val storm_volume: SeekBar = findViewById(R.id.storm_volume)
+       // val play_storm: Button = findViewById(R.id.play_storm)
+       // val storm_volume: SeekBar = findViewById(R.id.storm_volume)
         play_storm.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.STORM)
             toggleProgressBar(storm_volume)
         }
-        val play_water: Button = findViewById(R.id.play_water)
-        val water_volume: SeekBar = findViewById(R.id.water_volume)
+       // val play_water: Button = findViewById(R.id.play_water)
+        //val water_volume: SeekBar = findViewById(R.id.water_volume)
         play_water.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.WATER)
             toggleProgressBar(water_volume)
         }
 
-        val play_fire: Button = findViewById(R.id.play_fire)
-        val fire_volume: SeekBar = findViewById(R.id.fire_volume)
+       // val play_fire: Button = findViewById(R.id.play_fire)
+       // val fire_volume: SeekBar = findViewById(R.id.fire_volume)
         play_fire.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.FIRE)
             toggleProgressBar(fire_volume)
         }
-        val play_wind: Button = findViewById(R.id.play_wind)
-        val wind_volume: SeekBar = findViewById(R.id.wind_volume)
+       // val play_wind: Button = findViewById(R.id.play_wind)
+       // val wind_volume: SeekBar = findViewById(R.id.wind_volume)
         play_wind.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.WIND)
             toggleProgressBar(wind_volume)
         }
-        val play_night: Button = findViewById(R.id.play_night)
-        val night_volume: SeekBar = findViewById(R.id.night_volume)
+       // val play_night: Button = findViewById(R.id.play_night)
+        //val night_volume: SeekBar = findViewById(R.id.night_volume)
         play_night.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.NIGHT)
             toggleProgressBar(night_volume)
         }
-        val play_cat: Button = findViewById(R.id.play_cat)
-        val cat_volume: SeekBar = findViewById(R.id.cat_volume)
+        //val play_cat: Button = findViewById(R.id.play_cat)
+       // val cat_volume: SeekBar = findViewById(R.id.cat_volume)
         play_cat.setOnClickListener {
             playerService?.toggleSound(PlayerService.Sound.PURR)
             toggleProgressBar(cat_volume)
@@ -154,7 +160,7 @@ class MainActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = getString(R.string.app_name)
             val importance = NotificationManager.IMPORTANCE_MIN
-            val channel = NotificationChannel("snoozz", name, importance)
+            val channel = NotificationChannel("feature", name, importance)
 
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
